@@ -9,8 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        
+      },
+      fontFamily: {
+        pBold: ['PyeongChangPeace-Bold', 'sans-serif'],
+        pLight: ['PyeongChangPeace-Light', 'sans-serif'],
       },
     },
   },

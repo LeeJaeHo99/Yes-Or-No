@@ -1,3 +1,4 @@
+import "../../public/fonts/fonts.css"
 import "../styles/globals.css";
 
 export default function RootLayout({
@@ -6,7 +7,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="ko">
             <body>{children}</body>
         </html>
     );
