@@ -14,6 +14,8 @@ export default {
       fontFamily: {
         pBold: ['PyeongChangPeace-Bold', 'sans-serif'],
         pLight: ['PyeongChangPeace-Light', 'sans-serif'],
+        pressStart: ['Press-Start-2P', 'sans-serif'],
+        DGM: ['DungGeunMo'],
       },
     },
   },

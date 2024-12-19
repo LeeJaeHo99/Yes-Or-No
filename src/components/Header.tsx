@@ -1,10 +1,7 @@
-import Cloud from './Cloud';
-
-export default function MainTitle() {
+export default function Header() {
     return (
-        <div className="title-wrap flex items-center justify-center gap-[60px]">
-            <Cloud/>
-            <h1 className="font-pBold text-5xl text-center">
+        <header className="title-wrap flex items-center justify-center gap-[60px] w-full h-12 mt-8">
+            <h1 className="font-pBold text-6xl text-center">
                 <span className="text-red-300">극</span>
                 <span className="text-orange-300">락</span>
                 <span className="text-yellow-300">만</span>
@@ -13,7 +10,6 @@ export default function MainTitle() {
                 <span className="text-blue-500">이</span>
                 <span className="text-purple-300">다</span>
             </h1>
-            <Cloud/>
-        </div>
+        </header>
     );
 }

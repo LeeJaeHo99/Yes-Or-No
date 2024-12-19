@@ -8,7 +8,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko">
-            <body className='bg-blue-100'>{children}</body>
+            <body className='relative h-[100vh]'>
+                {children}
+            </body>
         </html>
     );
 }
