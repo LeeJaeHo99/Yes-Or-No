@@ -1,6 +1,13 @@
-export default function PixelBox({text}) {
+import Link from "next/link";
+
+type PixelBoxProps = {
+    text: string;
+    href: string;
+}
+
+export default function PixelBox({ text, href }: PixelBoxProps) {
     return (
-        <>
+        <Link href={`/${href}`}>
             <div className="pixel-grid">
                 <div className="pixel-text font-DGM select-none">{text}!</div>
 
@@ -193,8 +200,6 @@ export default function PixelBox({text}) {
                 <div className="pixel-black"></div>
                 <div className="pixel-transparent"></div>
             </div>
-
-    
-        </>
+        </Link>
     );
 }

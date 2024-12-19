@@ -1,5 +1,6 @@
 import "../../public/fonts/fonts.css"
 import "../styles/globals.css";
+import Header from "../components/Header";
 
 export default function RootLayout({
     children,
@@ -7,8 +8,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ko">
-            <body className='relative h-[100vh]'>
+        <html lang="ko" className="h-full">
+            <body className="flex items-center justify-start flex-col h-full">
+                <Header />
                 {children}
             </body>
         </html>
