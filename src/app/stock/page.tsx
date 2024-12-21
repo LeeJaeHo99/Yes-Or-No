@@ -1,10 +1,10 @@
-import TextInput from "@/components/TextInput";
 import Inner from "@/components/Inner";
+import PixelBoxAndInput from '../../components/PixelBoxAndInput';
 
 export default function StockPage() {
     return (
         <Inner>
-            <TextInput name={"주식 이름"} />
+            <PixelBoxAndInput name={'주식 종목'}/>
         </Inner>
     );
 }
