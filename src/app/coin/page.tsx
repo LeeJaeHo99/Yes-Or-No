@@ -7,7 +7,7 @@ export default function CoinPage() {
     return (
         <Inner>
             <TextInput name={"코인 종목"} />
-            <PixelBox text={"제출"} href={"/"} />
+            <PixelBox text={"제출"} href={"/"} size={'half'}/>
             <Image
                 src={"/images/boy.png"}
                 width={160}
