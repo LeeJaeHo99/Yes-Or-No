@@ -4,12 +4,12 @@ import Link from "next/link";
 
 type PixelBoxProps = {
     text: string;
-    href?: string;
     size: string;
-    onClick?: () => void;
+    href?: string;
+    click?: () => void;
 }
 
-export default function PixelBox({ text, href, size, onClick }: PixelBoxProps) {
+export default function PixelBox({ text, size, href, click }: PixelBoxProps) {
     const pixelContent = (
         <div className={`pixel-grid ${size}`}>
         <div className={`pixel-text font-DGM select-none ${size}`}>{text}!</div>
@@ -206,5 +206,5 @@ export default function PixelBox({ text, href, size, onClick }: PixelBoxProps) {
     )
 
     if(href) return <Link href={`/${href}`}>{pixelContent}</Link>
-    if(onClick) return <div onClick={onClick}>{pixelContent}</div>
+    if(click) return <div onClick={click}>{pixelContent}</div>
 }

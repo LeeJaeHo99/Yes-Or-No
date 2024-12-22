@@ -15,7 +15,7 @@ export default function PixelBoxAndInput({name}: nameProps) {
     return (
         <div className="flex items-center justify-center gap-5 w-full">
             <TextInput name={name} />
-            <PixelBox text={"제출"} size={"half"} onClick={submitCoin}/>
+            <PixelBox text={"제출"} size={"half"} click={submitCoin}/>
         </div>
     );
 }
