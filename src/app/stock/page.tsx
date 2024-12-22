@@ -1,5 +1,5 @@
 import Inner from "@/components/Inner";
-import PixelBoxAndInput from '../../components/PixelBoxAndInput';
+import PixelBoxAndInput from '@/components/PixelBoxAndInput';
 
 export default function StockPage() {
     return (

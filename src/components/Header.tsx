@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <header className="title-wrap flex items-center justify-center gap-[60px] w-full h-12 mt-32">
+        <header className="title-wrap flex items-center justify-center gap-[60px] w-full h-12 mt-16">
             <Link href={'/'}>
                 <h1 className="font-DGM text-7xl font-bold text-center">
                     <span className="text-red-300">극</span>
