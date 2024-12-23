@@ -9,13 +9,9 @@ type nameProps = {
     name: string;
 }
 
-type InputType = {
-    e: string;
-}
-
 export default function PixelBoxAndInput({name}: nameProps) {
     const [inputValue, setInpueValue] = useState(name);
-    const inputHandler = (e: InputType) => {
+    const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInpueValue(e.target.value);
     };
     console.log('inputValue: ', inputValue);
@@ -23,11 +19,14 @@ export default function PixelBoxAndInput({name}: nameProps) {
     const submitHandler = () => {
         console.log(123);
     }
+    const loadHandler = () => {
+        console.log(456);
+    }
 
     return (
         <div className="flex items-center justify-center gap-5 w-full">
             <TextInput name={name} change={inputHandler}/>
-            <PixelBox text={"제출"} size={"half"} click={submitHandler}/>
+            <PixelBox text={"제출"} size={"half"} submitHandler={submitHandler} loadHandler={loadHandler}/>
         </div>
     );
 }

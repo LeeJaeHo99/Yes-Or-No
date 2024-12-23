@@ -1,15 +1,18 @@
 'use client';
 
 import Link from "next/link";
+import { useDispatch } from 'react-redux';
+import { setLoading } from '@/store/store';
 
 type PixelBoxProps = {
     text: string;
     size: string;
     href?: string;
-    click?: () => void;
+    submitHandler?: () => void;
+    loadHandler?: () => void;
 }
 
-export default function PixelBox({ text, size, href, click }: PixelBoxProps) {
+export default function PixelBox({ text, size, href, submitHandler, loadHandler }: PixelBoxProps) {
     const pixelContent = (
         <div className={`pixel-grid ${size}`}>
         <div className={`pixel-text font-DGM select-none ${size}`}>{text}!</div>
@@ -204,7 +207,19 @@ export default function PixelBox({ text, size, href, click }: PixelBoxProps) {
         <div className={`pixel-transparent ${size}`}></div>
     </div>
     )
+    const dispatch = useDispatch();
 
     if(href) return <Link href={`/${href}`}>{pixelContent}</Link>
-    if(click) return <div onClick={click}>{pixelContent}</div>
+    if(submitHandler && loadHandler) {
+        const combineHandler = () => {
+            submitHandler();
+            loadHandler();
+            dispatch(setLoading());
+            
+            setTimeout(() => {
+                dispatch(setLoading());
+            }, 1800);
+        }
+        return <div onClick={combineHandler}>{pixelContent}</div>
+    }
 }
