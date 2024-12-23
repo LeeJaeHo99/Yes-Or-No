@@ -255,11 +255,11 @@ header h1 span {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-position: center;
-    padding: 0;
-    margin: 0;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #00000030;
 }
 
 .loader {
@@ -267,7 +267,7 @@ header h1 span {
     position: relative;
     width: 80px;
     height: 80px;
-    animation: spin 2s steps(1) infinite;
+    animation: spin 1.5s steps(1) infinite;
     box-sizing: border-box;
 }
 
@@ -279,7 +279,7 @@ header h1 span {
 }
 
 .block.active {
-    background: #000;
+    background: #7d7d7d;
 }
 
 /* Top Blocks */
