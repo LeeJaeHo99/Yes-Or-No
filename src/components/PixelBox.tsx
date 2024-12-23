@@ -9,10 +9,9 @@ type PixelBoxProps = {
     size: string;
     href?: string;
     submitHandler?: () => void;
-    loadHandler?: () => void;
 }
 
-export default function PixelBox({ text, size, href, submitHandler, loadHandler }: PixelBoxProps) {
+export default function PixelBox({ text, size, href, submitHandler }: PixelBoxProps) {
     const pixelContent = (
         <div className={`pixel-grid ${size}`}>
         <div className={`pixel-text font-DGM select-none ${size}`}>{text}!</div>
@@ -210,10 +209,9 @@ export default function PixelBox({ text, size, href, submitHandler, loadHandler 
     const dispatch = useDispatch();
 
     if(href) return <Link href={`/${href}`}>{pixelContent}</Link>
-    if(submitHandler && loadHandler) {
+    if(submitHandler) {
         const combineHandler = () => {
             submitHandler();
-            loadHandler();
             dispatch(setLoading());
             
             setTimeout(() => {

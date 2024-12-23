@@ -1,2 +1,7 @@
 input 사라지고 결과가 거기 나옴.
 아래에 그래프랑 애 나옴
+
+inputValue를 Result로 사용해야하기 때문에
+이거를 store로 리덕스로 만들어서
+PixelBoxAndInput 컴포넌트에서 action으로 e.target.value 받아옴
+그거를 Result에 넣음

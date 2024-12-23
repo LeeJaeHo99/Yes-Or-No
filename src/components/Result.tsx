@@ -1,7 +1,3 @@
 export default function Result(){
-    return(
-        <div>
-            sadf
-        </div>
-    );
+    return <div>sadf</div>
 }
