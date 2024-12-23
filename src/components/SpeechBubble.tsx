@@ -1,4 +1,5 @@
 export default function SpeechBubble() {
+
     return (
         <div id="speech-bubble">
             <div id="bub-part-a"></div>

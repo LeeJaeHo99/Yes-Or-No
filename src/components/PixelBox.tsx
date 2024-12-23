@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useDispatch } from 'react-redux';
-import { setLoading } from '@/store/store';
+import { setClickSubmit, setLoading } from '@/store/store';
 
 type PixelBoxProps = {
     text: string;
@@ -218,6 +218,7 @@ export default function PixelBox({ text, size, href, submitHandler, loadHandler 
             
             setTimeout(() => {
                 dispatch(setLoading());
+                dispatch(setClickSubmit());
             }, 1800);
         }
         return <div onClick={combineHandler}>{pixelContent}</div>

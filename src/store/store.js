@@ -11,20 +11,20 @@ let loading = createSlice({
 });
 export let { setLoading } = loading.actions;
 
-let speechText = createSlice({
-    name: 'speechText',
-    initialState: '내가 한번 검사해줄게!',
+let clickSubmit = createSlice({
+    name: 'clickSubmit',
+    initialState: true,
     reducers: {
-        setSpeechText(state, action){
-            return action.payload;  
+        setClickSubmit(state){
+            return !state;
         }
     }
 });
-export let { setSpeechText } = speechText.actions;
+export let { setClickSubmit } = clickSubmit.actions;
 
 export default configureStore({
     reducer: {
         loading: loading.reducer,
-        speechText: speechText.reducer,
+        clickSubmit: clickSubmit.reducer,
     }
 });

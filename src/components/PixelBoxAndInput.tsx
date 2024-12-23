@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import TextInput from "@/components/TextInput";
 import PixelBox from '@/components/PixelBox';
 
@@ -10,15 +9,16 @@ type nameProps = {
 }
 
 export default function PixelBoxAndInput({name}: nameProps) {
-    const [inputValue, setInpueValue] = useState(name);
+    const [inputValue, setInputValue] = useState(name);
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInpueValue(e.target.value);
+        setInputValue(e.target.value);
     };
     console.log('inputValue: ', inputValue);
 
     const submitHandler = () => {
         console.log(123);
     }
+
     const loadHandler = () => {
         console.log(456);
     }
