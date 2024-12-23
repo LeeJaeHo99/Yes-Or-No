@@ -223,6 +223,7 @@ header h1 span {
     justify-content: flex-start;
     align-items: center;
     min-width: 280px;
+    width: 65%;
 }
 
 /* Pixel 스타일 입력 필드 */

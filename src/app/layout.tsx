@@ -1,5 +1,6 @@
 import "../../public/fonts/fonts.css";
 import "../styles/globals.css";
+import "../styles/media.css";
 import Header from "../components/Header";
 
 export default function RootLayout({
