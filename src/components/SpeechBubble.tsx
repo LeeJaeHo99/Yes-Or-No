@@ -1,11 +1,15 @@
+'use client';
+import { useSelector } from 'react-redux';
+
 export default function SpeechBubble() {
+    const speechText = useSelector((state) => state.speechText);
 
     return (
         <div id="speech-bubble">
             <div id="bub-part-a"></div>
             <div id="bub-part-b"></div>
             <div id="bub-part-c"></div>
-            <div id="speech-txt">내가 한번 검사해줄게!</div>
+            <div id="speech-txt">{speechText}</div>
             <div id="bub-part-c"></div>
             <div id="bub-part-b"></div>
             <div id="bub-part-a"></div>

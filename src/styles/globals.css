@@ -149,7 +149,8 @@ header h1 span {
 }
 
 #speech-txt {
-    width: calc(100% - 3px);
+    width: auto;
+    min-width: calc(100% - 3px);
     padding: 10px;
     font-family: DungGeunMo;
     font-size: 16px;
