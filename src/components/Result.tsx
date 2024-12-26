@@ -1,3 +1,7 @@
+'use client';
+import { useSelector } from 'react-redux';
+
 export default function Result(){
-    return <div>sadf</div>
+    const inputResult = useSelector(state => state.inputResult);
+    return <div>{inputResult}</div>
 }
