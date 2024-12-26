@@ -1,8 +1,10 @@
 'use client';
-import { useSelector } from 'react-redux';
+
+import { useSelector } from "react-redux";
 
 export default function SpeechBubble() {
-    const speechText = useSelector((state) => state.speechText);
+    const result = useSelector(state => state.result);
+    const speechText = useSelector(state => state.speechText);
 
     return (
         <div id="speech-bubble">

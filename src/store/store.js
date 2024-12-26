@@ -33,6 +33,17 @@ let inputResult = createSlice({
 });
 export let { setInputResult } = inputResult.actions;
 
+let result = createSlice({
+    name: 'result',
+    initialState: true,
+    reducers: {
+        setResult(state, action){
+            return action.payload;
+        }
+    }
+});
+export let { setResult } = result.actions;
+
 let speechText = createSlice({
     name: 'speechText',
     initialState: '내가 한번 검사해줄게!',
@@ -49,6 +60,7 @@ export default configureStore({
         loading: loading.reducer,
         clickSubmit: clickSubmit.reducer,
         inputResult: inputResult.reducer,
+        result: result.reducer,
         speechText: speechText.reducer,
     }
 });

@@ -5,10 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 type InputName = {
     name: string;
-    change: () => void;
 };
 
-export default function TextInput({ name, change }: InputName) {
+export default function TextInput({ name }: InputName) {
     const dispatch = useDispatch();
     const inputResult = useSelector(state => state.inputResult);
     const inputTextHandler = (e) => {

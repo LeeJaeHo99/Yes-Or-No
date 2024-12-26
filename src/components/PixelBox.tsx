@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useDispatch } from 'react-redux';
-import { setClickSubmit, setLoading } from '@/store/store';
+import { setClickSubmit, setLoading, setSpeechText } from '@/store/store';
+import { useSelector } from 'react-redux';
+import { speechText } from "@/data/data";
 
 type PixelBoxProps = {
     text: string;
@@ -207,6 +209,9 @@ export default function PixelBox({ text, size, href, submitHandler }: PixelBoxPr
     </div>
     )
     const dispatch = useDispatch();
+    let result = useSelector(state => state.result);
+    let speechContent = result ? speechText[0] : speechText[1];
+    let randomText = speechContent[Math.floor(Math.random() * speechContent.length)];
 
     if(href) return <Link href={`/${href}`}>{pixelContent}</Link>
     if(submitHandler) {
@@ -217,6 +222,7 @@ export default function PixelBox({ text, size, href, submitHandler }: PixelBoxPr
             setTimeout(() => {
                 dispatch(setLoading());
                 dispatch(setClickSubmit());
+                dispatch(setSpeechText(randomText));
             }, 1800);
         }
         return <div onClick={combineHandler}>{pixelContent}</div>
