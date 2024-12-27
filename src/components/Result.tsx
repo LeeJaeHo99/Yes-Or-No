@@ -7,10 +7,10 @@ export default function Result() {
     console.log('inputTextNum: ', inputTextNum);
     let result = useSelector(state => state.result);
     result = inputTextNum % 2 === 0 ? true : false;
-    
+
     return (
         <div className="text-3xl">
-            <span>{inputResult}</span>는 {result ? '떡상' : '떡락'}할 운명입니다
+            <span className="font-bold">{inputResult}</span>is {result ? `<span className="text-red-400">떡상</span>` : '떡락'}할 운명입니다
         </div>
     );
 }
