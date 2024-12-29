@@ -11,14 +11,14 @@ export default function Home() {
     useEffect(() => {
         setTimeout(() => {
             setShow(true);
-        }, 3000);
+        }, 3500);
     }, []);
 
 
     return (
         <div>
             <Inner>
-                {show ? <PixelBoxWrap/> : <Boy mainText={'형 이번에도 다 잃으면 엄마한테 짱 혼난다며ㅋㅋ 내가 한번 형의 운명을 알려줄게! 그렇다고 다 믿지는 말고.'}/> }
+                {show ? <PixelBoxWrap/> : <Boy mainText={`형 이번에도 다 잃으면 엄마한테 짱 혼난다며ㅋㅋ 내가 한번 형의 운명을 알려줄게! 그렇다고 다 믿지는 말고.`}/> }
             </Inner>
         </div>
     );

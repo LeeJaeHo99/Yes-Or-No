@@ -11,9 +11,10 @@ type PixelBoxProps = {
     size: string;
     href?: string;
     submitHandler?: () => void;
+    lotteryHandler?: () => void;
 }
 
-export default function PixelBox({ text, size, href, submitHandler }: PixelBoxProps) {
+export default function PixelBox({ text, size, href, submitHandler, lotteryHandler }: PixelBoxProps) {
     const pixelContent = (
         <div className={`pixel-grid ${size}`}>
         <div className={`pixel-text font-DGM select-none ${size}`}>{text}!</div>
@@ -233,5 +234,8 @@ export default function PixelBox({ text, size, href, submitHandler }: PixelBoxPr
             }, 1800);
         }
         return <div onClick={combineHandler}>{pixelContent}</div>
+    }
+    if(lotteryHandler){
+        return <div onClick={lotteryHandler}>{pixelContent}</div>
     }
 }
