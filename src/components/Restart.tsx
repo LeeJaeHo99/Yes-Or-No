@@ -1,6 +1,10 @@
 import Image from 'next/image';
 
-export default function Restart({result}){
+type RestartType = {
+    result?: string;
+}
+
+export default function Restart({result}: RestartType){
     const refreshHandler = () => {
         window.location.reload();
     }

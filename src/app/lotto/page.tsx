@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Inner from "@/components/Inner";
 import PixelBox from "@/components/PixelBox";
 import { useState } from "react";
 import { lotteryNumData } from "@/data/data";
@@ -8,7 +9,9 @@ import { lotteryNumData } from "@/data/data";
 export default function LottoPage() {
     const [shuffledNum, setShuffledNum] = useState<number[]>([]);
     const pickRandomNum = () => {
-        const shuffled = [...lotteryNumData].sort(() => Math.random() - 0.5).slice(0, 6);
+        const shuffled = [...lotteryNumData]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 6);
         setShuffledNum(shuffled);
         return shuffled;
     };
@@ -20,13 +23,17 @@ export default function LottoPage() {
     };
 
     return (
-        <>
-            {lottery ? <LotteryResult shuffledNum={shuffledNum}/> : <LotteryWrap lotteryHandler={lotteryHandler}/>}
-        </>
+        <Inner justify={"start"}>
+            {lottery ? (
+                <LotteryResult shuffledNum={shuffledNum} />
+            ) : (
+                <LotteryWrap lotteryHandler={lotteryHandler} />
+            )}
+        </Inner>
     );
 }
 
-function LotteryWrap({lotteryHandler}) {
+function LotteryWrap({ lotteryHandler }) {
     return (
         <div className="flex items-center justify-center flex-col">
             <Image
@@ -44,10 +51,46 @@ function LotteryWrap({lotteryHandler}) {
     );
 }
 
-function LotteryResult({shuffledNum}){
-    return(
-        <div>
-            {shuffledNum}
-        </div>
+function LotteryResult({ shuffledNum }) {
+    const refreshHandler = () => {
+        window.location.reload();
+    };
+    const getBallColor = (number: number) => {
+        if (number >= 1 && number <= 10) return 'bg-yellow-300';
+        if (number >= 11 && number <= 20) return 'bg-blue-300';
+        if (number >= 21 && number <= 30) return 'bg-red-300';
+        if (number >= 31 && number <= 40) return 'bg-gray-300';
+        return 'bg-green-300'; // 41-45
+    };
+
+    return (
+        <>
+            <div className="flex items-center justify-center flex-wrap gap-6 absolute top-[30%] left-1/2 translate-x-[-50%] translate-y-[-50%] w-full px-4">
+                {shuffledNum.map((number, i) => {
+                    return (
+                        <div
+                            key={i}
+                            className={`lottery-ball flex items-center justify-center w-16 h-16 rounded-full font-DGM text-xl overflow-hidden ${getBallColor(number)}`}
+                        >
+                            <div className="flex items-center justify-center w-9 h-9 bg-white rounded-full">
+                                {number}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <div
+                className="flex flex-col items-center absolute top-[50%] left-1/2 translate-x-[-50%] translate-y-[-50%] cursor-pointer"
+                onClick={refreshHandler}
+            >
+                <Image
+                    src={"/images/rainbow.png"}
+                    width={60}
+                    height={60}
+                    alt="무지개 이미지"
+                />
+                <span className="font-DGM">다시 하기</span>
+            </div>
+        </>
     );
 }
