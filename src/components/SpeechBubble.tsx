@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux";
 
-export default function SpeechBubble() {
+export default function SpeechBubble({mainText}) {
     const result = useSelector(state => state.result);
     const speechText = useSelector(state => state.speechText);
 
@@ -11,7 +11,7 @@ export default function SpeechBubble() {
             <div id="bub-part-a"></div>
             <div id="bub-part-b"></div>
             <div id="bub-part-c"></div>
-            <div id="speech-txt">{speechText}</div>
+            <div id="speech-txt">{mainText ? mainText : speechText}</div>
             <div id="bub-part-c"></div>
             <div id="bub-part-b"></div>
             <div id="bub-part-a"></div>
