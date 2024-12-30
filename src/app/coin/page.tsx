@@ -8,6 +8,7 @@ import Result from '@/components/Result';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { setSpeechText } from '@/store/store';
+import Image from 'next/image';
 
 export default function CoinPage() {
     const loading = useSelector((state) => state.loading);
@@ -20,6 +21,15 @@ export default function CoinPage() {
 
     return (
         <>
+            <h2 className="flex items-center gap-2 mt-10 font-DGM text-3xl text-yellow-400">
+                <span>COIN</span>
+                <Image
+                    src={'/images/coin.png'}
+                    width={36}
+                    height={36}
+                    alt="coin img"
+                />
+            </h2>
             {loading && <Loading />}
             <Inner>
                 {!clickSubmit && <Result/>}
