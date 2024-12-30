@@ -25,6 +25,9 @@ export default function Home() {
 }
 
 function PixelBoxWrap() {
+    const screenWidth = window.innerWidth;
+    console.log('screenWidth: ', screenWidth);
+
     return (
         <div className="pixel-btn--wrap flex items-center justify-center flex-col gap-5 mt-40">
             <PixelBox text={"로또"} href={"lotto"} size={""} />

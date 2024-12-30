@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <header className="title-wrap flex items-center justify-center gap-[60px] w-full h-12 mt-16">
             <Link href={'/'}>
-                <h1 className="font-DGM text-7xl font-bold text-center">
+                <h1 className="main-title font-DGM text-7xl font-bold text-center">
                     <span className="text-red-300">극</span>
                     <span className="text-orange-300">락</span>
                     <span className="text-yellow-300">만</span>

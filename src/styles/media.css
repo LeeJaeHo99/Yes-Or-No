@@ -3,4 +3,18 @@
         background-position-y: top;
         background-size: cover;
     }
+    .main-title{
+        font-size: 56px;
+    }
 }
+
+@media screen and (max-width: 460px){
+    .main-title{
+        font-size: 48px;
+    }
+    .pixel-btn--wrap{
+        margin-top: 100px;
+    }
+}
+
+/* 330까지 */
