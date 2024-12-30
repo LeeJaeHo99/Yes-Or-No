@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Inner from "@/components/Inner";
 import PixelBox from "@/components/PixelBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { lotteryNumData } from "@/data/data";
+import Boy from '@/components/Boy';
 
 export default function LottoPage() {
     const [shuffledNum, setShuffledNum] = useState<number[]>([]);
@@ -22,13 +23,16 @@ export default function LottoPage() {
         pickRandomNum();
     };
 
+    const [showBoy, setShowBoy] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setShowBoy(true)
+        }, 800);
+    }, [lottery]);
+
     return (
         <Inner justify={"start"}>
-            {lottery ? (
-                <LotteryResult shuffledNum={shuffledNum} />
-            ) : (
-                <LotteryWrap lotteryHandler={lotteryHandler} />
-            )}
+            {lottery ? <LotteryResult shuffledNum={shuffledNum} showBoy={showBoy}/> : <LotteryWrap lotteryHandler={lotteryHandler}/>}
         </Inner>
     );
 }
@@ -42,6 +46,7 @@ function LotteryWrap({ lotteryHandler }) {
                 width={240}
                 height={240}
                 alt="로또"
+                unoptimized
             />
             <PixelBox text={"추첨"} size={""} lotteryHandler={lotteryHandler} />
             <div className="mt-6 text-gray-500 font-DGM text-lg">
@@ -51,7 +56,7 @@ function LotteryWrap({ lotteryHandler }) {
     );
 }
 
-function LotteryResult({ shuffledNum }) {
+function LotteryResult({ shuffledNum, showBoy }) {
     const refreshHandler = () => {
         window.location.reload();
     };
@@ -64,13 +69,13 @@ function LotteryResult({ shuffledNum }) {
     };
 
     return (
-        <>
-            <div className="flex items-center justify-center flex-wrap gap-6 absolute top-[30%] left-1/2 translate-x-[-50%] translate-y-[-50%] w-full px-4">
+        <div className="mt-40">
+            <div className="flex items-center justify-center flex-wrap gap-6 w-full px-4">
                 {shuffledNum.map((number, i) => {
                     return (
                         <div
                             key={i}
-                            className={`lottery-ball flex items-center justify-center w-16 h-16 rounded-full font-DGM text-xl overflow-hidden ${getBallColor(number)}`}
+                            className={`lottery-ball flex items-center justify-center w-16 h-16 rounded-full font-DGM text-xl overflow-hidden ${getBallColor(number)} animate-bigger`}
                         >
                             <div className="flex items-center justify-center w-9 h-9 bg-white rounded-full">
                                 {number}
@@ -80,7 +85,7 @@ function LotteryResult({ shuffledNum }) {
                 })}
             </div>
             <div
-                className="flex flex-col items-center absolute top-[50%] left-1/2 translate-x-[-50%] translate-y-[-50%] cursor-pointer"
+                className="flex flex-col items-center mt-14 cursor-pointer"
                 onClick={refreshHandler}
             >
                 <Image
@@ -91,6 +96,7 @@ function LotteryResult({ shuffledNum }) {
                 />
                 <span className="font-DGM">다시 하기</span>
             </div>
-        </>
+            {showBoy ? <Boy mainText={'형 이번에 무조건 사!'}/> : ''}
+        </div>
     );
 }

@@ -17,6 +17,15 @@ export default {
         pressStart: ['Press-Start-2P', 'sans-serif'],
         DGM: ['DungGeunMo'],
       },
+      keyframes: {
+        bigger: {
+          '0%': {transform: 'scale(0)'},
+          '100%': {transform: 'scale(1)'},
+        }
+      },
+      animation: {
+        bigger: 'bigger 1s ease-in-out'
+      }
     },
   },
   plugins: [],
