@@ -6,6 +6,7 @@ import PixelBox from "@/components/PixelBox";
 import { useState, useEffect } from "react";
 import { lotteryNumData } from "@/data/data";
 import Boy from '@/components/Boy';
+import { lotteryTextData } from '../../data/data';
 
 export default function LottoPage() {
     const [shuffledNum, setShuffledNum] = useState<number[]>([]);
@@ -68,6 +69,9 @@ function LotteryResult({ shuffledNum, showBoy }) {
         return 'bg-green-300'; // 41-45
     };
 
+    const randomLotteryText = lotteryTextData.sort(() => Math.random() - 0.5);
+    const randomSpeechText = randomLotteryText[0];
+
     return (
         <div className="mt-40">
             <div className="flex items-center justify-center flex-wrap gap-6 w-full px-4">
@@ -96,7 +100,7 @@ function LotteryResult({ shuffledNum, showBoy }) {
                 />
                 <span className="font-DGM">다시 하기</span>
             </div>
-            {showBoy ? <Boy mainText={'형 이번에 무조건 사!'}/> : ''}
+            {showBoy ? <Boy mainText={randomSpeechText}/> : ''}
         </div>
     );
 }
