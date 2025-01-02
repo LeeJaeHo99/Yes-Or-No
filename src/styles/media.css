@@ -3,8 +3,50 @@
         background-position-y: top;
         background-size: cover;
     }
+    .title-wrap{
+        margin-top: 32px;
+    }
     .main-title{
         font-size: 56px;
+    }
+    .ball-wrap{
+        margin-top: 100px;
+    }
+    .boy-bubble--wrap{
+        margin-top: 32px;
+    }
+    .pixel-boy--component{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .inner{
+        width: 80%;
+    }
+    .lottery-img{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 535px){
+    .ball-wrap{
+        margin-top: 48px;
+    }
+    .restart-component{
+        margin-top: 24px;
+    }
+    .restart-component img{
+        width: 40px;
+    }
+    .restart-component span{
+        font-size: 14px;
+    }
+    .pixel-boy--component{
+        width: 160px;
+    }
+    .bot-text{
+        font-size: 16px;
     }
 }
 
@@ -14,6 +56,15 @@
     }
     .pixel-btn--wrap{
         margin-top: 100px;
+    }
+    header{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .main-title{
+        font-size: 36px;
     }
 }
 

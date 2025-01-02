@@ -10,7 +10,7 @@ export default function Restart({result}: RestartType){
     }
 
     return(
-        <div className='flex flex-col items-center cursor-pointer' onClick={refreshHandler}>
+        <div className='restart-component flex flex-col items-center cursor-pointer' onClick={refreshHandler}>
             <Image
                 src={`/images/${result ? 'true' : 'false'}-graph.png`}
                 width={60}

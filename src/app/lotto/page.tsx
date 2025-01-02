@@ -42,7 +42,7 @@ function LotteryWrap({ lotteryHandler }) {
     return (
         <div className="flex items-center justify-center flex-col">
             <Image
-                className="mt-24 mb-10 ml-2"
+                className="lottery-img mt-24 mb-10 ml-2"
                 src={"/images/lottery.gif"}
                 width={240}
                 height={240}
@@ -50,7 +50,7 @@ function LotteryWrap({ lotteryHandler }) {
                 unoptimized
             />
             <PixelBox text={"추첨"} size={""} lotteryHandler={lotteryHandler} />
-            <div className="mt-6 text-gray-500 font-DGM text-lg">
+            <div className="bot-text mt-6 text-gray-500 font-DGM text-lg">
                 ※ 1 ~ 45까지의 숫자 중 랜덤으로 6개의 숫자가 추출됩니다.
             </div>
         </div>
@@ -73,7 +73,7 @@ function LotteryResult({ shuffledNum, showBoy }) {
     const randomSpeechText = randomLotteryText[0];
 
     return (
-        <div className="mt-40">
+        <div className="ball-wrap mt-40">
             <div className="flex items-center justify-center flex-wrap gap-6 w-full px-4">
                 {shuffledNum.map((number, i) => {
                     return (
@@ -89,7 +89,7 @@ function LotteryResult({ shuffledNum, showBoy }) {
                 })}
             </div>
             <div
-                className="flex flex-col items-center mt-14 cursor-pointer"
+                className="restart-component flex flex-col items-center mt-14 cursor-pointer"
                 onClick={refreshHandler}
             >
                 <Image
