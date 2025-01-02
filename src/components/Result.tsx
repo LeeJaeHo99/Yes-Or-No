@@ -10,7 +10,7 @@ export default function Result() {
 
     return (
         <>
-            <div className="mb-6 font-DGM text-3xl">
+            <div className="result-text mb-6 font-DGM text-3xl">
                 <span className="font-extrabold">{inputResult}</span> is 
                 <span className="font-extrabold text-4xl text-blue-400" style={{ color: result ? '#f87171' : '#60a5fa' }}>
                     {result ? ` 떡상` : ' 떡락'}

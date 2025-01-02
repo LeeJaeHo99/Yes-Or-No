@@ -39,6 +39,23 @@ export default function LottoPage() {
 }
 
 function LotteryWrap({ lotteryHandler }) {
+    const [sWidth, setSWidth] = useState("");
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 450 && window.innerHeight <= 650) {
+                setSWidth("half");
+            } else {
+                setSWidth("");
+            }
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div className="flex items-center justify-center flex-col">
             <Image
@@ -49,7 +66,7 @@ function LotteryWrap({ lotteryHandler }) {
                 alt="로또"
                 unoptimized
             />
-            <PixelBox text={"추첨"} size={""} lotteryHandler={lotteryHandler} />
+            <PixelBox text={"추첨"} size={`${sWidth}`} lotteryHandler={lotteryHandler} />
             <div className="bot-text mt-6 text-gray-500 font-DGM text-lg">
                 ※ 1 ~ 45까지의 숫자 중 랜덤으로 6개의 숫자가 추출됩니다.
             </div>

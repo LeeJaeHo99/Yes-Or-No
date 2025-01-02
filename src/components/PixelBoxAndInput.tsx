@@ -13,7 +13,7 @@ export default function PixelBoxAndInput({name}: nameProps) {
     }
 
     return (
-        <div className="flex items-center justify-center gap-5 w-full">
+        <div className="pixelBox-input--wrap flex items-center justify-center gap-5 w-full">
             <TextInput name={name}/>
             <PixelBox text={"제출"} size={"half"} submitHandler={submitHandler}/>
         </div>
