@@ -55,6 +55,17 @@ let speechText = createSlice({
 });
 export let { setSpeechText } = speechText.actions;
 
+let inputTextNum = createSlice({
+    name: 'inputTextNum',
+    initialState: 0,
+    reducers: {
+        setInputTextNum(state, action){
+            return action.payload;
+        }
+    }
+});
+export let { setInputTextNum } = inputTextNum.actions;
+
 export default configureStore({
     reducer: {
         loading: loading.reducer,
@@ -62,5 +73,6 @@ export default configureStore({
         inputResult: inputResult.reducer,
         result: result.reducer,
         speechText: speechText.reducer,
+        inputTextNum: inputTextNum.reducer,
     }
 });

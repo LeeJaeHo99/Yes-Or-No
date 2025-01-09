@@ -1,7 +1,6 @@
 "use client";
-import { setInputResult } from '@/store/store';
+import { setInputResult, setInputTextNum } from '@/store/store';
 import { useSelector, useDispatch } from 'react-redux';
-
 
 type InputName = {
     name: string;
