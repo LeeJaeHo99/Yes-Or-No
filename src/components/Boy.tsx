@@ -4,6 +4,7 @@ import Image from "next/image";
 // 📍 GROUP : COMPONENT
 import SpeechBubble from './SpeechBubble';
 
+// 🗝️ TYPE : mainText
 type Props = {
     mainText: string;
 }
