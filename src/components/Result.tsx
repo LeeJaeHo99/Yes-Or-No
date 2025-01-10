@@ -1,11 +1,19 @@
 "use client";
+
+// 📍 GROUP : REDUX
 import { useSelector } from "react-redux";
+
+// 📍 GROUP : COMPONENT
 import Restart from './Restart';
 
+// 🗝️ TYPE : RootState
+import { RootState } from '@/store/store';
+
 export default function Result() {
-    const inputResult = useSelector((state) => state.inputResult);
+    const inputResult = useSelector((state: RootState) => state.inputResult);
     const inputTextNum = inputResult.length;
-    let result = useSelector(state => state.result);
+    let result = useSelector((state: RootState) => state.result);
+    // 🤖 WORK : 글자 수가 짝수면 떡상 출력, 홀수면 떡락 출력
     result = inputTextNum % 2 === 0 ? true : false;
 
     return (

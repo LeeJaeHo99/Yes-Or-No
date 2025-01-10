@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 // 🗝️ TYPE : Props
 type RestartType = {
-    result?: string;
+    result?: string | boolean;
 }
 
 export default function Restart({result}: RestartType){
