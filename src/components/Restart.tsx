@@ -1,10 +1,13 @@
+// 📍 GROUP : IMAGE
 import Image from 'next/image';
 
+// 🗝️ TYPE : Props
 type RestartType = {
     result?: string;
 }
 
 export default function Restart({result}: RestartType){
+    // 🤖 WORK : 페이지 새로고침
     const refreshHandler = () => {
         window.location.reload();
     }

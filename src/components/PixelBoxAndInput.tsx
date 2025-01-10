@@ -1,8 +1,10 @@
 "use client";
 
+// 📍 GROUP : COMPONENT
 import TextInput from "@/components/TextInput";
 import PixelBox from '@/components/PixelBox';
 
+// 🗝️ TYPE : Props
 type nameProps = {
     name: string;
 }
