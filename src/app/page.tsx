@@ -1,13 +1,15 @@
 "use client";
 
-import PixelBox from "../components/PixelBox";
-import Inner from "../components/Inner";
+// 📍 GROUP : HOOKS
 import { useState, useEffect } from "react";
+
+// 📍 GROUP : COMPONENT
+import PixelBox from "@/components/PixelBox";
+import Inner from "@/components/Inner";
 import Boy from "@/components/Boy";
 
 export default function Home() {
     const [show, setShow] = useState(false);
-
     useEffect(() => {
         setTimeout(() => {
             setShow(true);
@@ -17,13 +19,7 @@ export default function Home() {
     return (
         <div>
             <Inner>
-                {show ? (
-                    <PixelBoxWrap />
-                ) : (
-                    <Boy
-                        mainText={`형 이번에도 다 잃으면 엄마한테 짱 혼난다며ㅋㅋ 내가 한번 형의 운명을 알려줄게! 그렇다고 다 믿지는 말고.`}
-                    />
-                )}
+                {show ? <PixelBoxWrap />: <Boy mainText={`형 이번에도 다 잃으면 엄마한테 짱 혼난다며ㅋㅋ\n 내가 한번 형의 운명을 알려줄게!\n 그렇다고 다 믿지는 말고.`}/>}
             </Inner>
         </div>
     );
@@ -32,6 +28,7 @@ export default function Home() {
 function PixelBoxWrap() {
     const [sWidth, setSWidth] = useState("");
     useEffect(() => {
+        // 🤖 WORK : 스크린 사이즈 낮을 시 PixelBox 축소
         const handleResize = () => {
             if (window.innerWidth < 450 && window.innerHeight <= 650) {
                 setSWidth("half");
@@ -41,10 +38,7 @@ function PixelBoxWrap() {
         };
         handleResize();
         window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (

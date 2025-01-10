@@ -1,7 +1,5 @@
-import { ReactNodeType } from "@/types/type";
-
 type InnerProps = {
-    children: ReactNodeType;
+    children: React.ReactNode;
     items?: string;
     justify?: string;
     direction?: string;

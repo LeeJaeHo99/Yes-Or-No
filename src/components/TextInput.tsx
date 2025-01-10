@@ -12,6 +12,9 @@ export default function TextInput({ name }: InputName) {
     const inputTextHandler = (e) => {
         dispatch(setInputResult(e.target.value));
     }
+    const inputTextNumHandler = (e) => {
+        dispatch(setInputTextNum(e.length));
+    }
 
     return (
         <div className="pixel-container">
