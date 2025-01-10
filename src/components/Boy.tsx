@@ -1,7 +1,14 @@
+// 📍 GROUP : IMAGE
 import Image from "next/image";
+
+// 📍 GROUP : COMPONENT
 import SpeechBubble from './SpeechBubble';
 
-export default function Boy({mainText}) {
+type Props = {
+    mainText: string;
+}
+
+export default function Boy({ mainText }: Props) {
     return (
         <div className="boy-bubble--wrap flex items-center justify-center flex-col w-full mt-16">
             <SpeechBubble mainText={mainText}/>
