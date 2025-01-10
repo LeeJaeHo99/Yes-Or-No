@@ -1,19 +1,18 @@
 "use client";
-import { setInputResult, setInputTextNum } from '@/store/store';
-import { useSelector, useDispatch } from 'react-redux';
 
+// 📍 GROUP : REDUX
+import { setInputResult } from '@/store/store';
+import { useDispatch } from 'react-redux';
+
+// 🗝️ TYPE : Props
 type InputName = {
     name: string;
 };
 
 export default function TextInput({ name }: InputName) {
     const dispatch = useDispatch();
-    const inputResult = useSelector(state => state.inputResult);
-    const inputTextHandler = (e) => {
+    const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setInputResult(e.target.value));
-    }
-    const inputTextNumHandler = (e) => {
-        dispatch(setInputTextNum(e.length));
     }
 
     return (
