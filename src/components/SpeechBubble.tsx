@@ -1,10 +1,16 @@
 'use client';
 
+// 📍 GROUP : REDUX
 import { useSelector } from "react-redux";
 
-export default function SpeechBubble({mainText}) {
-    const result = useSelector(state => state.result);
-    const speechText = useSelector(state => state.speechText);
+// 🗝️ TYPE : Props, RootState
+type MainText = {
+    mainText: string;
+}
+import { RootState } from '@/store/store';
+
+export default function SpeechBubble({mainText}: MainText) {
+    const speechText = useSelector((state: RootState) => state.speechText);
 
     return (
         <div id="speech-bubble">
