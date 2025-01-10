@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-let loading = createSlice({
+const loading = createSlice({
     name: 'loading',
     initialState: false,
     reducers: {
@@ -9,9 +9,9 @@ let loading = createSlice({
         }
     }
 });
-export let { setLoading } = loading.actions;
+export const { setLoading } = loading.actions;
 
-let clickSubmit = createSlice({
+const clickSubmit = createSlice({
     name: 'clickSubmit',
     initialState: true,
     reducers: {
@@ -20,9 +20,9 @@ let clickSubmit = createSlice({
         }
     }
 });
-export let { setClickSubmit } = clickSubmit.actions;
+export const { setClickSubmit } = clickSubmit.actions;
 
-let inputResult = createSlice({
+const inputResult = createSlice({
     name: 'inputResult',
     initialState: '',
     reducers: {
@@ -31,9 +31,9 @@ let inputResult = createSlice({
         }
     }
 });
-export let { setInputResult } = inputResult.actions;
+export const { setInputResult } = inputResult.actions;
 
-let result = createSlice({
+const result = createSlice({
     name: 'result',
     initialState: true,
     reducers: {
@@ -42,9 +42,9 @@ let result = createSlice({
         }
     }
 });
-export let { setResult } = result.actions;
+export const { setResult } = result.actions;
 
-let speechText = createSlice({
+const speechText = createSlice({
     name: 'speechText',
     initialState: '내가 한번 검사해줄게!',
     reducers: {
@@ -53,9 +53,9 @@ let speechText = createSlice({
         }
     }
 });
-export let { setSpeechText } = speechText.actions;
+export const { setSpeechText } = speechText.actions;
 
-let inputTextNum = createSlice({
+const inputTextNum = createSlice({
     name: 'inputTextNum',
     initialState: 0,
     reducers: {
@@ -64,9 +64,9 @@ let inputTextNum = createSlice({
         }
     }
 });
-export let { setInputTextNum } = inputTextNum.actions;
+export const { setInputTextNum } = inputTextNum.actions;
 
-export default configureStore({
+const store = configureStore({
     reducer: {
         loading: loading.reducer,
         clickSubmit: clickSubmit.reducer,
@@ -76,3 +76,6 @@ export default configureStore({
         inputTextNum: inputTextNum.reducer,
     }
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export default store;
