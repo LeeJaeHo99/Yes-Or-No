@@ -1,18 +1,25 @@
 "use client";
 
+// 📍 GROUP : COMPONENT
 import Inner from "@/components/Inner";
 import PixelBoxAndInput from "@/components/PixelBoxAndInput";
 import Boy from "@/components/Boy";
 import Loading from "@/components/Loading";
 import Result from "@/components/Result";
-import { useSelector, useDispatch } from "react-redux";
+
+// 📍 GROUP : HOOK
 import { useEffect } from "react";
-import { setSpeechText } from "@/store/store";
+
+// 📍 GROUP : REDUX
+import { useSelector, useDispatch } from "react-redux";
+import { setSpeechText, RootState } from "@/store/store";
+
+// 📍 GROUP : IMAGE
 import Image from "next/image";
 
 export default function StockPage() {
-    const loading = useSelector((state) => state.loading);
-    const clickSubmit = useSelector((state) => state.clickSubmit);
+    const loading = useSelector((state: RootState) => state.loading);
+    const clickSubmit = useSelector((state: RootState) => state.clickSubmit);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,7 +41,7 @@ export default function StockPage() {
             <Inner>
                 {!clickSubmit && <Result />}
                 {clickSubmit && <PixelBoxAndInput name={"주식 종목"} />}
-                <Boy />
+                <Boy mainText=''/>
             </Inner>
         </>
     );

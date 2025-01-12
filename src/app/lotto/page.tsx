@@ -1,15 +1,24 @@
 "use client";
 
+// 📍 GROUP : HOOK
+import { useState, useEffect } from "react";
+
+// 📍 GROUP : IMAGE
 import Image from "next/image";
+
+// 📍 GROUP : COMPONENT
 import Inner from "@/components/Inner";
 import PixelBox from "@/components/PixelBox";
-import { useState, useEffect } from "react";
-import { lotteryNumData } from "@/data/data";
 import Boy from '@/components/Boy';
+
+// 📍 GROUP : DATA
+import { lotteryNumData } from "@/data/data";
 import { lotteryTextData } from '../../data/data';
 
 export default function LottoPage() {
     const [shuffledNum, setShuffledNum] = useState<number[]>([]);
+    
+    // 🤖 WORK : 랜덤으로 번호 6개 뽑기
     const pickRandomNum = () => {
         const shuffled = [...lotteryNumData]
             .sort(() => Math.random() - 0.5)
@@ -92,7 +101,7 @@ function LotteryResult({ shuffledNum, showBoy }) {
     return (
         <div className="ball-wrap mt-40">
             <div className="flex items-center justify-center flex-wrap gap-6 w-full px-4">
-                {shuffledNum.map((number, i) => {
+                {shuffledNum.map((number: number, i: number) => {
                     return (
                         <div
                             key={i}
