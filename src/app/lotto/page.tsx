@@ -15,6 +15,15 @@ import Boy from '@/components/Boy';
 import { lotteryNumData } from "@/data/data";
 import { lotteryTextData } from '../../data/data';
 
+// 🗝️ TYPE
+type LotteryWrapProps = {
+    lotteryHandler: () => void;
+}
+type LotteryResultProps = {
+    shuffledNum: number[],
+    showBoy: boolean,
+}
+
 export default function LottoPage() {
     const [shuffledNum, setShuffledNum] = useState<number[]>([]);
     
@@ -47,7 +56,7 @@ export default function LottoPage() {
     );
 }
 
-function LotteryWrap({ lotteryHandler }) {
+function LotteryWrap({ lotteryHandler }: LotteryWrapProps) {
     const [sWidth, setSWidth] = useState("");
     useEffect(() => {
         const handleResize = () => {
@@ -83,7 +92,7 @@ function LotteryWrap({ lotteryHandler }) {
     );
 }
 
-function LotteryResult({ shuffledNum, showBoy }) {
+function LotteryResult({ shuffledNum, showBoy }: LotteryResultProps) {
     const refreshHandler = () => {
         window.location.reload();
     };
