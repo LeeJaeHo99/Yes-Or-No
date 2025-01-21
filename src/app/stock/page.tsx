@@ -9,10 +9,11 @@ import Result from "@/components/Result";
 
 // 📍 GROUP : HOOK
 import { useEffect } from "react";
+import { usePathname } from 'next/navigation';
 
 // 📍 GROUP : REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { setSpeechText, RootState } from "@/store/store";
+import { setSpeechText, RootState, setClickSubmit } from "@/store/store";
 
 // 📍 GROUP : IMAGE
 import Image from "next/image";
@@ -21,9 +22,19 @@ export default function StockPage() {
     const loading = useSelector((state: RootState) => state.loading);
     const clickSubmit = useSelector((state: RootState) => state.clickSubmit);
     const dispatch = useDispatch();
+    const pathName = usePathname().split('/')[1];
+
+    const onLoadPathName = () => {
+        if(pathName === 'stock'){
+            dispatch(setClickSubmit(true));
+        }
+    }
 
     useEffect(() => {
         dispatch(setSpeechText("내가 한번 검사해줄게!"));
+
+        // 🤖 WORK : 입장 시 초기화
+        onLoadPathName();
     }, []);
 
     return (
@@ -39,8 +50,7 @@ export default function StockPage() {
             </h2>
             {loading && <Loading />}
             <Inner>
-                {!clickSubmit && <Result />}
-                {clickSubmit && <PixelBoxAndInput name={"주식 종목"} />}
+                {clickSubmit ? <PixelBoxAndInput name={"주식 종목"} /> : <Result />}
                 <Boy mainText=''/>
             </Inner>
         </>

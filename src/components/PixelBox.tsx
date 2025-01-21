@@ -21,7 +21,6 @@ type PixelBoxProps = {
     lotteryHandler?: () => void;
 }
 
-
 export default function PixelBox({ text, size, href, submitHandler, lotteryHandler }: PixelBoxProps) {
     const pixelContent = (
         <div className={`pixel-grid ${size}`}>
@@ -231,13 +230,15 @@ export default function PixelBox({ text, size, href, submitHandler, lotteryHandl
     if(href) return <Link href={`/${href}`}>{pixelContent}</Link>
     
     if(submitHandler) {
+        if(inputResult.length === 0) return; 
+
         const combineHandler = () => {
             submitHandler();
             dispatch(setLoading());
             
             setTimeout(() => {
                 dispatch(setLoading());
-                dispatch(setClickSubmit());
+                dispatch(setClickSubmit(false));
                 dispatch(setSpeechText(randomText));
             }, 1800);
         }

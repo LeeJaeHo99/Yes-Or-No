@@ -1,3 +1,5 @@
+'use client';
+
 // 📍 GROUP : LINK
 import Link from "next/link";
 

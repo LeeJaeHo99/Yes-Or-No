@@ -15,8 +15,8 @@ const clickSubmit = createSlice({
     name: 'clickSubmit',
     initialState: true,
     reducers: {
-        setClickSubmit(state){
-            return !state;
+        setClickSubmit(state, action){
+            return action.payload;
         }
     }
 });
