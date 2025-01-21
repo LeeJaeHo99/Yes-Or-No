@@ -11,12 +11,22 @@ export const metadata = {
     title: "극락만이 락이다",
     description:
         "로또 번호 추첨과 자신이 구매 할 코인이나 주식의 미래를 예측하는 웹사이트이다.",
-    keywords: ["로또", "로또번호 추첨", "코인", "비트코인", "주식", "떡상", "떡락",],
+    keywords: ["로또", "로또 번호 추첨", "코인", "비트코인", "주식", "떡상", "떡락",],
     icons: {icon: "/favicon.ico",},
     openGraph: {
         type: "website",
         locale: "ko_KR",
-        // url: '',
+        title: "극락만이 락이다",
+        description: "로또 번호 추첨과 자신이 구매할 코인이나 주식의 미래를 예측하는 웹사이트입니다.",
+        url: "https://heaven-only-rock.com",
+        images: [
+            {
+                url: '/images/meta/metaImage.png',
+                width: 1200,
+                height: 630,
+                alt: "극락만이 락이다 미리보기 이미지",
+            },
+        ],
     },
     robots: {
         index: true,
@@ -27,6 +37,10 @@ export const metadata = {
             "max-video-preview": -1,
             "max-image-preview": "large",
             "max-snippet": -1,
+        },
+        bingbot: {
+            index: true,
+            follow: true,
         },
     },
 };
