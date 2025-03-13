@@ -101,7 +101,7 @@ function LotteryResult({ shuffledNum, showBoy }: LotteryResultProps) {
         if (number >= 11 && number <= 20) return 'bg-blue-300';
         if (number >= 21 && number <= 30) return 'bg-red-300';
         if (number >= 31 && number <= 40) return 'bg-gray-300';
-        return 'bg-green-300'; // 41-45
+        return 'bg-green-300';
     };
 
     const randomLotteryText = lotteryTextData.sort(() => Math.random() - 0.5);
