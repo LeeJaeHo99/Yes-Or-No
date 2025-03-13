@@ -115,6 +115,7 @@ function LotteryResult({ shuffledNum, showBoy }: LotteryResultProps) {
                         <div
                             key={i}
                             className={`lottery-ball flex items-center justify-center w-16 h-16 rounded-full font-DGM text-xl overflow-hidden ${getBallColor(number)} animate-bigger`}
+                            style={{animationDelay: `${i * 0.3}s`}}
                         >
                             <div className="flex items-center justify-center w-9 h-9 bg-white rounded-full">
                                 {number}
