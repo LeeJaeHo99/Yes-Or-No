@@ -11,9 +11,9 @@ import { RootState } from '@/store/store';
 
 export default function Result() {
     const inputResult = useSelector((state: RootState) => state.inputResult);
-    const inputTextNum = inputResult.length;
+    const inputTextNum = inputResult.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     let result = useSelector((state: RootState) => state.result);
-    // 🤖 WORK : 글자 수가 짝수면 떡상 출력, 홀수면 떡락 출력
+    // 🤖 WORK : 글자의 유니코드 합이 짝수면 떡상 출력, 홀수면 떡락 출력
     result = inputTextNum % 2 === 0 ? true : false;
 
     return (
